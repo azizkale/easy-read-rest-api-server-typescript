@@ -25,19 +25,19 @@ export class WordPairsFromChatGPTService {
 
           Kriterler:
           - Günümüz Türkçesinde sık veya hiç kullanılmayan
-          - Osmanlıca, Arapça, Farsça, Fransızca kökenli olan
+          - Özellikle Osmanlıca, Arapça, Farsça, Fransızca kökenli olan 
+          - veya öz türkçe olmayan
           - Bediüzzaman Said Nursi'nin kitaplarında geçen kelimelere benzeyen
           - Risale-i Nur Külliyatı'nda geçen kelimelere benzeyen
           - Fethullah Gülen'in kitaplarında veya vaazlarında geçen kelimelere benzeyen
           - Dini bir terim olabilecek veya olan
+          - Kelimelerin anlamlarını metindeki/cümledeki kontkslerine göre verir misin.
+          - Kelimeyi metindeki hali ile verir misin. Çekimleme yapma lütfen. 
+          - Ekleri varsa çıkarma lütfen. Ekleri yoksa ek ekleme lütfen
+          - Metinde geçmeyen kelimelerin anlamlarına bakma lütfen.
+          - Gerektiğinde "ç,ğ,ı,ş,ö" gibi Türkçe harflari kullan lütfen.
 
-          - Kelimelerin anlamlarını metindeki/cümledeki kontkslerine göre ver.
-          - Kelimeyi metindeki hali ile ver. Çekimleme yapma. 
-          - Ekleri varsa çıkarma. Ekleri yoksa ek ekleme
-          - Metinde geçmeyen kelimelerin anlamlarına bakma.
-          - Gerektiğinde "ç,ğ,ı,ş,ö" gibi Türkçe harflari kullan.
-
-          Tespit ettiğin kelimeler ve anlamlarını aşağıdaki WordPair interface formatında JSON nesneleri olarak oluştur:
+          Tespit ettiğin kelimeler ve anlamlarını aşağıdaki WordPair interface formatında JSON nesneleri olarak oluşturur musun:
 
           interface WordPair {
             wordPairId: any;
@@ -48,17 +48,17 @@ export class WordPairsFromChatGPTService {
             editorId: any
           }
 
-          Oluşturduğun JSON nesnelerinin hepsinde bazı değişkenler aşağıdaki gibi olsun;
-            wordPairId = 13 basamaklı random bir sayıi fakat tüm nesnelerinki birbirinden farklı olsun         
+          Oluşturduğun JSON nesnelerinin hepsinde bazı değişkenler aşağıdaki gibi olsun lütfen;
+            wordPairId = 13 basamaklı random bir sayıi fakat tüm nesnelerinki birbirinden farklı olsun lütfen         
             
             chapterId= ${chapterId}
             pirId = ${pirId}
             editorId = ${editorId}
 
-          Sonra '${listWordPairs}' dizisine bak. Eğer oluşturduğun Bu JSON nesneleri bu dizide yoksa bu diziye ekle. Eğer varsa ekleme. Diziyi sıfırlama, mevcut dataların üzerine ekleme yap.
-          Taramayı 3 kez yap ve her seferinde listeyi kontrol et. Var olan kelimeleri listeye ekleme. Her taramada üstteki kriterlere uygun yeni kelimeleri listeye ekle.
+          Sonra '${listWordPairs}' dizisine bak. Eğer oluşturduğun Bu JSON nesneleri bu dizide yoksa bu diziye ekle. Eğer varsa ekleme. Diziyi sıfırlama, mevcut dataların üzerine ekleme yap lütfen.
+          Taramayı 3 kez yapar mısın ve her seferinde listeyi kontrol eder misin. Var olan kelimeleri listeye ekleme lütfen. Her taramada üstteki kriterlere uygun yeni kelimeleri listeye ekle lütfen.
 
-          Çıktı olarak sadece JSON array ver, başka metin ekleme.
+          Çıktı olarak sadece JSON array ver, başka metin ekleme lütfen.
           `,
           },
         ],

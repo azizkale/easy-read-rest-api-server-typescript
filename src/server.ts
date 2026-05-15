@@ -30,13 +30,15 @@ const corsOptions = {
   origin: [
     "https://mywebsite-3f527.firebaseapp.com",
     "http://localhost:4200",
+    "http://localhost:4201",
+    "http://localhost:4300",
     "https://mywebsite-3f527.web.app",
     "http://4.156.80.52",
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   preflightContinue: false,
-  default: "http://localhost:4200",
+  default: "http://localhost:4201",
   optionsSuccessStatus: 200,
 };
 

@@ -104,3 +104,4 @@ typings/
 dist/
 
 easy_read_nodejs_k8s
+.env
