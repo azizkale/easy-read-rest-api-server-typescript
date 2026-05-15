@@ -26,23 +26,29 @@ const port = process.env.PORT || 3001;
 
 require("dotenv").config();
 
+const whitelist = [
+  "https://mywebsite-3f527.firebaseapp.com",
+  "http://localhost:4200",
+  "http://localhost:4201",
+  "http://localhost:4300",
+  "https://mywebsite-3f527.web.app",
+  "http://4.156.80.52",
+  "https://anliyorum.web.app" 
+];
+
 const corsOptions = {
-  origin: [
-    "https://mywebsite-3f527.firebaseapp.com",
-    "http://localhost:4200",
-    "http://localhost:4201",
-    "http://localhost:4300",
-    "https://mywebsite-3f527.web.app",
-    "http://4.156.80.52",
-    "https://anliyorum.web.app/"
-  ],
+  origin: function (origin: any, callback: any) {
+    // Postman veya bazı iç isteklerde origin boş gelebilir, ona da izin veriyoruz
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS politikasından dolayı engellendi!"));
+    }
+  },
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
-  preflightContinue: false,
-  default: "http://localhost:4201",
-  optionsSuccessStatus: 200,
+  optionsSuccessStatus: 200
 };
-
 app.use(cors(corsOptions));
 
 app.use("/", userroutes);
@@ -67,7 +73,7 @@ app.get("/hi", async (req, res, next) => {
   //
 });
 
-app.post("/refresh-token", async (req, res) => {});
+app.post("/refresh-token", async (req, res) => { });
 
 app.get("/", async (req, res, next) => {
   try {
