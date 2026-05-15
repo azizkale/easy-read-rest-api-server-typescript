@@ -34,7 +34,7 @@ const corsOptions = {
     "http://localhost:4300",
     "https://mywebsite-3f527.web.app",
     "http://4.156.80.52",
-    "https://easy-read-rest-api-server-typescript-8a46.onrender.com"
+    "https://anliyorum.web.app/"
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
