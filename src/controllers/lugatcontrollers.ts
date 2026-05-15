@@ -10,14 +10,19 @@ export class LugatController {
         return res
           .status(400)
           .send({ error: 'Missing "word" parameter in the query.' });
-      }
-
+      }  
       const response = await axios.get(
-        `https://lugat.osmanlica.online/?kelime=${word}&kaynak=browser&sadecehattikuran=false&filitre=Luggat,arap%C3%A7a%20kelimeler&manadaara=false&json=True`
+        `https://lugat-api.osmanlica.online/api/kelime?kelime=${word}`
       );
 
       if (response.data ?? false) {
-        res.send(response.data);
+        const meanings = response.data.data
+  .filter((item: any) => item.eser_isim === "Luggat")
+  .map((item: any) => item.temiz_mana);
+
+      res.send(meanings);
+       
+        console.log(meanings)
       } else {
         console.log(`${word} kelimesinin anlamı bulunamadı`);
         res.status(404).send({ error: "Word not found" });
